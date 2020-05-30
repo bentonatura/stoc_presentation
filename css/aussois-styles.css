@@ -83,9 +83,19 @@ body {
   color: rgb(0, 0, 128);
   font-weight: bold ;
 }
+
 .em3 {
   color: #E65100;
 }
+
+.predictor{
+  color: #5d7800;
+}
+
+.corrector{
+  color: #f21212;
+}
+
 h1,
 h2,
 h3,
