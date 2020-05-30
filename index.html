@@ -72,10 +72,10 @@
     <div id="step-title-joris" class="step title-joris" data-x="4000" data-y="5000" data-z="0" data-scale="1">
         <div class="talk_title_container">
             <div class="talk_title">
-              <div style="font-size:130%;margin-bottom:0.2em;">Layered-Least-Squares <br> Interior Point Methods</div>
+              <div style="font-size:130%;margin-bottom:0.2em; margin-top:.4em;">A scaling-invariant algorithm for linear programming</div>
             </div>
             <div class="talk_subtitle">
-              <div style="font-size:130%;margin-bottom:0.2em;">a combinatorial optimization perspective</div>
+              <div style="font-size:130%;margin-bottom:0.2em;">whose running time only depends on the constraint matrix</div>
             </div>
           </div>
           <div class="talk_author_container" style="margin-bottom: 0.1em;">
@@ -123,9 +123,10 @@ hidden; height: 150px; margin: 0px 20px 0px 20px;"/> -->
 
 <div id="step-LP-formulation" class="step" data-rel-x="3000" data-rel-y="0" data-rel-z="0" data-scale="1" >
   <h2 class="center-text">Linear Programming</h2>
-
     <p>
     In standard form for $$A \in \mathbb{Q}^{m \times n}$$, $$b\in \mathbb{Q}^m$$, $$c\in \mathbb{Q}^n$$,
+    
+    <div class="box" style="width: 70%; height: 30%;">
 <font class="fr">
     $$$
       \begin{aligned}
@@ -135,10 +136,20 @@ hidden; height: 150px; margin: 0px 20px 0px 20px;"/> -->
       \end{aligned}
       $$$
     </font>
+    </div>
+    <img src="./data/lp-pic.png" style="position: relative;" height="200px"/>
   </p>
-  <center>
-  <img src="./data/lp-pic.png" style="position: relative; top: 20px;" height="200px"/>
-  </center>
+  <div class="box" style="width: 70%; height: 30%;">
+   LP with <font class="fr"> $$n$$</font> variables, <font class="fr">$$m$$ </font>constraints
+<br>
+ <font class="fr">$$L$$</font>: encoding length of the input <font class="fr">$$(A,b,c)$$</font>. 
+ <br>
+ Ellipsoid Method and Interior Point Methods <font class="fr">$$\mathrm{poly}(n,m,L)$$</font>
+ <br>
+ Strongly poly algorithm: <font class="fr">$$\mathrm{poly}(n,m)$$</font> arithmetic operations (Smale's question) 
+ </div>
+ <img src="./data/holygrail.png" style="height: 150px;"/>
+
 
   <!-- <canvas class="center-block" width="800px" height="400px"></canvas> -->
 </div>
@@ -149,117 +160,17 @@ hidden; height: 150px; margin: 0px 20px 0px 20px;"/> -->
 </div> -->
 
 
-<div id="step-timeline" class="step timeline-slide">
-  <h2 class="center-text"> Timeline </h2>
-  <!-- <div style="float:right; padding-top: 50px; padding-right: 50px"> </div> -->
-  <div id="timeline-content" style="margin-left: 150px; font-size: 20px;">
-      <ul class="timeline" style="width: 70%">
-          <li class="event" data-date="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;?">
-              <img src="./data/holygrail.png" style="height: 150px; float: right"/>
-              <h3> Strongly polynomial algorithm for LP </h3>
-              <font class="ref"> Smale's 9th question </font>
-            </li>
-          <li class="event" data-date="1980s">
-             <h3>Interior point methods</h3>
-             <font class="ref"> Karmarkar </font>
-            </li>
-        <li class="event" data-date="1970s">
-          <h3> Ellipsoid Method </h3>
-          <font class="ref">Khachiyan</font>
-        </li>
-        <li class="event" data-date="1940s">
-          <h3>Simplex Method </h3>
-          <font class="ref">Dantzig</font>
-        </li>
-        <li class="event" data-date="1820s">
-          <h3>Origins</h3>
-          <font class="ref">Fourier</h3>
-      </ul>
-    </div>
-</div>
-
-<div id="step-weakly-vs-strongly-polynomial" class="step">
+<!-- <div id="step-weakly-vs-strongly-polynomial" class="step">
     <h2 class="center-text">Weakly vs Strongly Polynomial Algorithms for LP</h2>
 LP with <font class="fr"> $$n$$</font> variables, <font class="fr">$$m$$ </font>constraints
 <br>
- <font class="fr">$$L$$</font>: encoding length of the input.
-<p >
-    <fieldset style="border: 1px black solid; height: 50%; width: 45%; margin:0; float:left">
-
-        <legend style="border: 1px black solid;margin-left: 1em; padding: 0.2em 0.8em; margin: 0 ">weakly polynomial</legend>
-        <ul style="list-style-type:disk;">
-          <li>
-             <font class="fr"> $$\mathrm{poly}(m,n,L)$$ </font> basic arithmetic operations.
-          </li>
-        </ul>
-        </fieldset>
-
-        <fieldset style="border: 1px black solid; height: 50%; width: 45%; margin:0; float:left">
-        <legend style="border: 1px black solid;margin-left: 1em; padding: 0.2em 0.8em ">strongly polynomial</legend>
-        <ul style="list-style-type:disk;">
-          <li>
-            <font class="fr">$$\mathrm{poly}(m,n)$$</font> basic arithmetic operations.
-           </li>
-           <li>
-            <font class="fr"> PSPACE</font>: all numbers occurring in the algorithm must remain polynomially bounded in input size.
-           </li>
-        </ul>
-        </fieldset>
-      </p>
-      <br>
-<p >
-  <br>
-              Standard variants of Ellipsoid and interior point methods: running time bound heavily
-relies on <font class="fr">$$L$$</font>.
-                </p>
-</div>
-
-<div id="step-strongly-polynomial-algorithms-for-LP" class="step">
-    <h2 class="center-text">Strongly Polynomial Algorithms for LP</h2>
-    <fieldset style="border: 1px black solid">
-
-        <legend style="border: 1px black solid;margin-left: 1em; padding: 0.2em 0.8em ">Network flow problems</legend>
-        <ul class="lst">
-          <li>
-Maximum flow: <font class="ref">Edmonds&ndash;Karp&ndash;Dinitz '70-72</font>
-<li>
-Min-cost flow: <font class="ref">Tardos '85</font>
-</li>
-</ul>
-<!--
-          <li>
-            If $$A$$ integral and $$|\mathrm{det}(B)| \leq \Delta$$ for square submatrices, then LP solvable in time $$\mathrm{poly}(m,n,\Delta)$$[T86].
-          </li>
-          <li>
-            LP solvable in $$O(n^{3.5}\log\bar\chi_A)$$ linear system solves, where $$\bar\chi_A = O(2^{L_A})$$ [VY96].
-          </li>
-        </ul>-->
-        </fieldset>
-        <br>
-        <fieldset style="border: 1px black solid">
-
-            <legend style="border: 1px black solid;margin-left: 1em; padding: 0.2em 0.8em ">Special classes of LP</legend>
-            <ul class="lst">
-              <li>
-               Feasibility of 2-variable-per-inequality systems: <font class="ref">Megiddo '83</font>
-              </li>
-               <li>
-                Discounted Markov Decision Processes: <font class="ref"> Ye '05, Ye '11 </font>
-              </li>
-              <li>
-               Maximum generalized flow problem: <font class="ref"> Vegh '17, Olver&ndash;Vegh '18</font>
-              </li>
-              <li>
-                ...
-              </li>
-            </ul>
-            </fieldset>
-</div>
-
-<!--
-<div id="step-strongly-polynomial-general-0" class="step" data-rel-x="0" data-rel-y="1.0h" data-rel-to="step-strongly-polynomial-algorithms-for-LP">
-</div>
--->
+ <font class="fr">$$L$$</font>: encoding length of the input <font class="fr">$$(A,b,c)$$</font>. 
+ <br>
+ Ellipsoid Method and Interior Point Methods <font class="fr">$$\mathrm{poly}(n,m,L)$$</font>
+ <br>
+ Strongly poly algorithm: <font class="fr">$$\mathrm{poly}(n,m)$$</font> arithmetic operations (Smale's question) 
+ <img src="./data/holygrail.png" style="height: 150px; float: right"/>
+</div> -->
 
 <div id="step-strongly-polynomial-general-1" class="step">
       <h2 class="center-text">Dependence on the constraint matrix only</h2>
@@ -274,7 +185,11 @@ Min-cost flow: <font class="ref">Tardos '85</font>
             <li>
               <font class="ref">'Combinatorial LPs'</font>
               <br>
-              If $$A$$ integral and $$|\mathrm{det}(B)| \leq \Delta$$ for all square submatrices of $$A$$, then LP solvable in <font class="fr">$$\mathrm{poly}(m,n,\log(\Delta))$$</font> arithmetic operations: <font class="ref">Tardos '86</font>
+              If $$A$$ integral and $$|\mathrm{det}(B)| \leq \Delta$$ for all square submatrices of $$A$$, then LP solvable in <font class="fr">$$\mathrm{poly}(m,n,\log(\Delta))$$</font> arithmetic operations: <font class="ref">Tardos '86</font> <br> 
+              <ul class="lst">
+                <li>Note $$\Delta = 1$$ for TU-matrices.</li>
+                <li>If integer values bounded in <font class="fr">$$\mathrm{poly}(n)$$</font> then the algorithm is strongly polynomial.</li>
+              </ul> 
             </li>
             <li>
               <font class="ref">'Layered-least-squares (LLS) Interior Point Method'</font><br>
@@ -308,6 +223,7 @@ with $$\|(1,2,x,y)\| \leq M\|(1,2)\|$$.</br>
             Depends only on the subspace $$\ker(A)$$.
           </li>
           <li> $$\bar\chi_A = O(2^{L_A})$$. </li>
+          <li> $$\bar\chi_A$$ polynomially bounded in $$\Delta$$ </li>
           <!-- <li>
           Governs the stability of <font class="fr">LLS</font> steps.
           </li> -->
@@ -326,7 +242,7 @@ class="ref">Tun&ccedil;el '99</font>.
 <div id="step-central-path-visualisation" class="step">
     <h2 class="center-text"> The central path </h2>
  <!--   <h5> <i> The central path and path following methods </i></h5>-->
-  <div class="box" style="width: 55%">
+  <div class="box" style="width: 50%">
     <ul class="lst">
       <li>
     For each $$\mu>0$$, there exists a unique solution <font class="fr">$$w(\mu)=(x(\mu),y(\mu),s(\mu))$$</font> such that
@@ -348,8 +264,8 @@ class="ref">Tun&ccedil;el '99</font>.
     </ul>
              </div>
 
-  <div class="box" style="width: 45%; padding-top: 50px">
-      <img src="data/central_path.png" style="height: 65%;">
+  <div class="box" style="width: 50%; padding-left: 0px">
+      <img src="inkscape/predictor_corrector.svg" style="height: 100%;">
   </div>
 
 </div>
@@ -487,8 +403,7 @@ Dadush&ndash;Huiberts&ndash;N.&ndash;V&eacute;gh '20</h2>
     <h3 class="center-text"> </h3>
     <fieldset style="border: 1px black solid">
 
-        <legend style="border: 1px black solid;margin-left: 1em; padding: 0.2em
-0.8em, font-size: 20px">A scaling invariant algorithm</legend>
+      <legend style="border: 1px black solid;margin-left: 1em; padding: 0.2em 0.8em"> A scaling invariant algorithm</legend>
         We give a scaling invariant LLS interior point method, settling the open question posed by <font class="ref">Monteiro and Tsuchiya in '03</font>.
         </fieldset>
         <fieldset style="border: 1px black solid; position: relative; top: 7px">
@@ -515,7 +430,7 @@ $$ \bar\chi_A^*\le \bar\chi_{AD}\le n (\bar\chi_A^*)^3$$</font>.
         </fieldset>
 </div>
 
-<div id="step-limitation" class="step">
+<!-- <div id="step-limitation" class="step">
     <h2 class="center-text">Limitation</h2>
     <div class="theorem"> <font class="ref"> [Allamigeon&ndash;Benchimol&ndash;Gaubert&ndash;Joswig '18]</font>
       <br>
@@ -548,7 +463,7 @@ w(\mu) &:= (x(\mu),s(\mu),y(\mu)).
 $$$
 </font>
 </p>
-  </div>
+  </div> -->
 
 <!-- <div id="step-overview-3" class="step" data-x="13000" data-y="11000" data-scale="12">
 </div> -->
@@ -606,8 +521,8 @@ $$\textcolor{red}{s(\mu)^\top x(\mu)} = \sum_{i=1}^n s_i(\mu) x_i(\mu) =
   </li>
     </ul>
 </div>
-  <div class="box" style="width: 45%; padding-top: 50px">
-      <img src="data/central_path.png" style="height: 65%;">
+  <div class="box" style="width: 45%; padding-top: 0px">
+      <img src="inkscape/predictor_corrector.svg" style="height: 100%;">
   </div>
 </div>
 
@@ -649,16 +564,19 @@ to not moving too far away from the path.
 
 
 <div id="step-interior-point-method-success" class="step">
-  <h2>Recent weakly polynomial IPM successess</h2>
-       <font class="fr"> $$$\min c^\top x,\, Ax=b,\, x\ge 0$$$</font>
+  <h2 class="center-text">Recent weakly polynomial IPM successess</h2>
+       <font class="fr"> $$$\min c^\top x,\, Ax=b,\, x\ge 0, A \in \mathbb{Q}^{m \times n}$$$</font>
   <ul class="lst">
-    <li>Randomized <font class="fr">$$\tilde{O}(\sqrt{m}(\mathrm{nnz}(A) + m^2)L)$$</font> algorithm,  where $$\mathrm{nnz}$$ is the number of non-zeros: <font class="ref">Lee&ndash;Sidford '14-15</font>
+    <li>Randomized <font class="fr">$$\tilde{O}(\sqrt{m}(\mathrm{nnz}(A) + m^2)L)$$</font> algorithm,  where <font class="fr">$$\mathrm{nnz}$$</font> is the number of non-zeros: <font class="ref">Lee&ndash;Sidford '14-15, '19</font>
     </li>
-    <li>Randomized algorithm in 'current' matrix multiplication time <font class="fr">$$\tilde{O}(n^\omega L)$$</font>, <br> $$\omega \approx 2.37$$: <font class="ref">Cohen&ndash;Lee&ndash;Song '18</font></li>
+    <li>Randomized algorithm in 'current' matrix multiplication time <font class="fr">$$\tilde{O}(n^\omega L)$$</font>, <br> $$\omega \approx 2.37$$: <font class="ref">Cohen&ndash;Lee&ndash;Song '18</font>, improving the conditional 'current': <font class="ref"> Jiang, Song, Weinstein, Zhang</font>  </li>
     <li>Deterministic algorithm  with same runtime: <font class="ref">van den Brand '20</font></li>
+    <li> Randomized <font class="fr">$$\tilde{O}(\sqrt{m}(md + d^3)$$</font> algorithm, <font class="ref"> van den Brand, Lee, Sidford, Song '20 </font> </li>
   </ul>
+  <br>
+  <font class="ref"> D. - N. -V. '20 </font> : Strongly polynomial solvers via blackbox application of weakly polynomial solvers.
   <!-- <h3> For special problems: </h3>
-  <ul>
+  <ul>s
     <li><font class="fr">$$\tilde{O}(m^{3/2} \log^2(U/\epsilon))$$</font> algorithm for an additive $$\epsilon$$ approximation for lossy generalized flow problems: <font class="ref">Daitch&ndash;Spielman '08</font></li>
     <li><font class="fr">$$\mathcal{O}(m^{10/7})$$</font> algorithm for max $$s$$-$$t$$ flow and min $$s$$-$$t$$ cut problems in directed graphs with unit capacities: <font class="ref">M&#261;dry '13</font></li>
   </ul> -->
@@ -871,6 +789,56 @@ Variables on lower layers 'barely influence' those on higher layers.
 </p>
 </div>
 
+<div id="step-near-opt-kappa" class="step" >
+  <h2 class="center-text">The optimal rescaling $$\kappa^*_A$$</h2>
+  <font class="fr"> $$$\kappa^*_A:=\inf\{\kappa_{AD}: D\in \mathbf{D}\}.$$$</font>
+  A near-optimal rescaling $$D$$ for $$\kappa_{AD}$$ will be near-optimal for $$\bar\chi_{AD}$$
+  <br>
+  <p>
+  <span class="em2">Example:</span> Let $$\ker(A)=\mathrm{span}((0,1,1,M),(1,0,M,1))$$.
+  <br>
+  Thus, $$\{2,3,4\}$$ and $$\{1,3,4\}$$ are circuits, and $$\kappa_A\ge M$$.
+  <br> Can we find a $$D$$ such that $$\kappa_{AD}$$ is small?
+</p>
+</div>
+
+
+<div id="step-cycle-invariant" class="step">
+  <h2 class="center-text"> Cycles are invariant under rescalings </h2>
+  <!-- <h4 class="center-text">...that is, cycles of circuits</h4> -->
+  <center>
+    <img src="./data/circuits_cycle.png" style="height: 300px"/>
+  </center>
+    <div class="theorem"> <font class="ref">[DHNV20]</font>
+      <font class="fr">
+        $$$\kappa^*_A=\max\left\{\prod_{(i,j)\in H} \kappa_{ij}^{1/|H|}:\, H \textrm{ is a cycle in the complete graph on }[n]\right\}$$$
+      </font>
+</div>
+</div>
+
+<div id="step-kappa-lower" class="step">
+  <h2 class="center-text">Approximating $$\kappa^*_A$$</h2>
+  <div class="theorem"> <font class="ref">[DHNV20]</font>
+      <font class="fr">
+        $$$\kappa^*_A=\max\left\{\prod_{(i,j)\in H} \kappa_{ij}^{1/|H|}:\, H \textrm{ is a cycle in the complete graph on }[n]\right\}$$$
+      </font>
+</div>
+<p>
+  <ul class="lst">
+    <li><span class="em2">Algorithmically,</span> the optimal rescaling can be obtained via a minimum-mean cycle computation for the costs $$c_{ij}=-\log\kappa_{ij}$$.
+    </li>
+    <li>
+     <span class="em2">Minor caveat:</span>  computing $$\kappa_{ij}$$ values is NP-complete
+   </li>
+   <li>
+   <span class="em2"> Luckily,</span> for any $$g\in \ker(A)$$ with $$i,j\in \mathrm{supp}(g)\in \mathcal{C}$$,
+    <font class="fr">
+     $$$ |g_j/g_i|\ge \kappa_{ij}/(\kappa^*_A)^2.$$$
+        </font>
+   </li>
+ </p>
+</div>
+
 <div id="step-our-alg-1" class="step"  >
   <h2 class="center-text">Scale-invariant layering algorithm [DHNV20]</h2>
 
@@ -887,7 +855,6 @@ maintain gradually improving lower bounds on them.
   </ul>
 
   <center> <img src="./data/scc.png" height="300px"/> </center>
-
 </div>
 
 <div id="step-vavasis-ye-algorithm4" class="step">
@@ -948,61 +915,30 @@ Our improved analysis is also applicable to the original Vavasis&ndash;Ye algori
   </ul>
 </div>
 
-<div id="step-near-opt-kappa" class="step" >
-  <h2 class="center-text">The optimal rescaling $$\kappa^*_A$$</h2>
-  <font class="fr"> $$$\kappa^*_A:=\inf\{\kappa_{AD}: D\in \mathbf{D}\}.$$$</font>
-  A near-optimal rescaling $$D$$ for $$\kappa_{AD}$$ will be near-optimal for $$\bar\chi_{AD}$$
-  <br>
-  <p>
-  <span class="em2">Example:</span> Let $$\ker(A)=\mathrm{span}((0,1,1,M),(1,0,M,1))$$.
-  <br>
-  Thus, $$\{2,3,4\}$$ and $$\{1,3,4\}$$ are circuits, and $$\kappa_A\ge M$$.
-  <br> Can we find a $$D$$ such that $$\kappa_{AD}$$ is small?
-</p>
-</div>
 
-
-<div id="step-cycle-invariant" class="step">
-  <h2 class="center-text"> Cycles are invariant under rescalings </h2>
-  <!-- <h4 class="center-text">...that is, cycles of circuits</h4> -->
-  <center>
-    <img src="./data/circuits_cycle.png" style="height: 300px"/>
-  </center>
-    <div class="theorem"> <font class="ref">[DHNV20]</font>
-      <font class="fr">
-        $$$\kappa^*_A=\max\left\{\prod_{(i,j)\in H} \kappa_{ij}^{1/|H|}:\, H \textrm{ is a cycle in the complete graph on }[n]\right\}$$$
-      </font>
-</div>
-</div>
-
-<div id="step-kappa-lower" class="step">
-  <h2 class="center-text">Approximating $$\kappa^*_A$$</h2>
-  <div class="theorem"> <font class="ref">[DHNV20]</font>
-      <font class="fr">
-        $$$\kappa^*_A=\max\left\{\prod_{(i,j)\in H} \kappa_{ij}^{1/|H|}:\, H \textrm{ is a cycle in the complete graph on }[n]\right\}$$$
-      </font>
-</div>
-<p>
+<div id="step-conclusions" class="step" >
+  <h2 class="center-text">The last slide - Open questions</h2>
   <ul class="lst">
-    <li><span class="em2">Algorithmically,</span> the optimal rescaling can be obtained via a minimum-mean cycle computation for the costs $$c_{ij}=-\log\kappa_{ij}$$.
-    </li>
-    <li>
-     <span class="em2">Minor caveat:</span>  computing $$\kappa_{ij}$$ values is NP-complete
+   <li style="margin-bottom: 10px"><span class="em2">Practical potential?</span> preprocessing LPs via column rescaling may be a good idea.
    </li>
-   <li>
-   <span class="em2"> Luckily,</span> for any $$g\in \ker(A)$$ with $$i,j\in \mathrm{supp}(g)\in \mathcal{C}$$,
-    <font class="fr">
-     $$$ |g_j/g_i|\ge \kappa_{ij}/(\kappa^*_A)^2.$$$
-        </font>
+   <li style="margin-bottom: 10px">Improve the running time, both the iteration count and by using faster linear algebra.
    </li>
- </p>
+   <li style="margin-bottom: 10px">Understand and further explore the combinatorics of $$\bar\chi_A$$ and $$\kappa_A$$.
+   </li>
+   <li style="margin-bottom: 10px">Strongly polynomial LP: need to 'leave' the central path or use path
+induced by different barrier.
+   </li>
+   <li style="margin-bottom: 10px"> Can we unify strongly polynomial analyses for special LP classes
+using tools from LLS analysis? </li>
+   <li style="margin-bottom: 10px"> Show that LPs with $$2$$ variables per inequality can be solved in
+strongly polynomial time. </li>
+   <li> Can we get combinatorial bounds on the number of
+iterations of the LLS steps? </br>
+        Does $$2^n$$ iterations suffice to solve an $$n$$-variable LP?</li>
+  </ul>
 </div>
 
-<div id="step-thanks" class="step">
- <h2 class="center-text" style="margin-top: 300px;">Thank you!</h2> 
-</div>
-
-<div id="step-chi-bar-definition" class ="step scroll">
+<!-- <div id="step-chi-bar-definition" class ="step scroll">
 <h2 class="center-text">The condition number $$\bar\chi_A$$</h2>
 <div class=definition>
   <font class="fr">
@@ -1149,7 +1085,7 @@ $$$
 $$$.
 </font>
 </p>
-</div>
+</div> -->
 
 
 
@@ -1219,27 +1155,7 @@ $$$.
 </div> -->
 
 
- <div id="step-conclusions" class="step" >
-       <h2 class="center-text">Open questions</h2>
-       <ul class="lst">
-        <li style="margin-bottom: 10px"><span class="em2">Practical potential?</span> preprocessing LPs via column rescaling may be a good idea.
-        </li>
-        <li style="margin-bottom: 10px">Improve the running time, both the iteration count and by using faster linear algebra.
-        </li>
-        <li style="margin-bottom: 10px">Understand and further explore the combinatorics of $$\bar\chi_A$$ and $$\kappa_A$$.
-        </li>
-        <li style="margin-bottom: 10px">Strongly polynomial LP: need to 'leave' the central path or use path
-induced by different barrier.
-        </li>
-        <li style="margin-bottom: 10px"> Can we unify strongly polynomial analyses for special LP classes
-using tools from LLS analysis? </li>
-        <li style="margin-bottom: 10px"> Show that LPs with $$2$$ variables per inequality can be solved in
-strongly polynomial time. </li>
-				<li> Can we get combinatorial bounds on the number of
-iterations of the LLS steps? </br>
-             Does $$2^n$$ iterations suffice to solve an $$n$$-variable LP?</li>
-       </ul>
-</div>
+
 
 </div>
 

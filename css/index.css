@@ -153,3 +153,9 @@ ol > li:before {
   content: "(" counter(list, lower-roman) ") ";
   counter-increment: list;
 }
+
+fieldset, legend {   
+  -moz-border-radius:5px;  
+  border-radius: 10px;  
+  -webkit-border-radius: 5px;
+}  
