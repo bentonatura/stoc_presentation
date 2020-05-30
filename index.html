@@ -126,7 +126,7 @@ hidden; height: 150px; margin: 0px 20px 0px 20px;"/> -->
     <p>
     In standard form for $$A \in \mathbb{Q}^{m \times n}$$, $$b\in \mathbb{Q}^m$$, $$c\in \mathbb{Q}^n$$,
     
-    <div class="box" style="width: 70%; height: 30%;">
+    <div class="box" style="width: 70%; height: 25%;">
 <font class="fr">
     $$$
       \begin{aligned}
@@ -144,9 +144,9 @@ hidden; height: 150px; margin: 0px 20px 0px 20px;"/> -->
 <br>
  <font class="fr">$$L$$</font>: encoding length of the input <font class="fr">$$(A,b,c)$$</font>. 
  <br>
- Ellipsoid Method and Interior Point Methods <font class="fr">$$\mathrm{poly}(n,m,L)$$</font>
+ Weakly polynomial algorithms: Ellipsoid Method and Interior Point Methods run in <font class="fr">$$\mathrm{poly}(n,m,L)$$</font>
  <br>
- Strongly poly algorithm: <font class="fr">$$\mathrm{poly}(n,m)$$</font> arithmetic operations (Smale's question) 
+ <font class="gold"> Strongly polynomial algorithm:</font> Is there an algorithm that runs in <font class="fr">  $$\mathrm{poly}(n,m)$$</font> arithmetic operations? (Smale's 9th squestion) 
  </div>
  <img src="./data/holygrail.png" style="height: 150px;"/>
 
@@ -717,7 +717,7 @@ $$$\min\, \sum_{\textcolor{red}{i\in B^*}}\left(\frac{x_i+\Delta \bar x_i}{x_i}\
       <canvas id="chart_canvas3"></canvas>
       <!-- <progress id="animationProgress2" max="1" value="0" style="width: 100%"></progress> -->
     </div>
-    <div class="box" style="width: 35%; margin-left: 1cm">
+    <div class="box" style="width: 40%; margin-left: 1cm; padding-top: 30px;">
       <ul class="lst">
         <li>
     Arrange the variables into layers <font class="fr">$$(J_1,J_2,\ldots,J_k)$$</font> as follows:
@@ -862,6 +862,7 @@ maintain gradually improving lower bounds on them.
   <br> in the Vavasis&ndash;Ye algorithm</h2>
 
   <h3>Progress measure</h3>
+  <div class="box" style="width: 55% ; padding-top: 0px">
     <div class="definition">
       The variables $$x_i$$ and $$x_j$$ <span class="em2">cross over</span>
 between $$\mu$$ and $$\mu'$$ for $$\mu \gt \mu' \gt 0$$, if
@@ -880,12 +881,18 @@ between $$\mu$$ and $$\mu'$$ for $$\mu \gt \mu' \gt 0$$, if
 happens within every $$O(n^{1.5} \log \bar\chi_A)$$ iterations.
     </div>
     <span class="em2"><span class="em2">We do not know which two variables cross over!</span>  </span>
+    </div>
+      <div class="box" style="width: 40%; padding-left: 0px">
+        <img src="inkscape/path_curvature.svg" style="height: 100%;">
+    </div>
+
 </div>
 
 <div id="step-our-alg-2" class="step">
   <h2 class="center-text">Scale-invariant layering algorithm [DHNV20]</h2>
 
    <h3>Improved convergence analysis</h3>
+   <div class="box" style="width: 60% ; padding-top: -50px">
     <div class="definition">
       The variables $$x_i$$ and $$x_j$$ <span class="em2">cross over</span>
 between $$\mu$$ and $$\mu'$$ for $$\mu \gt \mu' \gt 0$$, if
@@ -913,13 +920,17 @@ $$O(n^{3.5}\log(\bar\chi_A+n))$$ to
 Our improved analysis is also applicable to the original Vavasis&ndash;Ye algorithm.
     </li>
   </ul>
+  </div>
+  <div class="box" style="width: 40%; padding-left: 0px">
+    <img src="inkscape/path_curvature.svg" style="height: 100%;">
+</div>
 </div>
 
 
 <div id="step-conclusions" class="step" >
-  <h2 class="center-text">The last slide - Open questions</h2>
+  <h2 class="center-text">One more slide - Open questions</h2>
   <ul class="lst">
-   <li style="margin-bottom: 10px"><span class="em2">Practical potential?</span> preprocessing LPs via column rescaling may be a good idea.
+   <li style="margin-bottom: 10px; margin-top: 100px"><span class="em2">Practical potential?</span> preprocessing LPs via column rescaling may be a good idea.
    </li>
    <li style="margin-bottom: 10px">Improve the running time, both the iteration count and by using faster linear algebra.
    </li>
@@ -995,98 +1006,6 @@ $$$
 <!-- <div id="step-rounding-0" class="step"
    style="height:3000px">
 </div> -->
-
-<div id="step-rounding-1" class="step">
-
-  <h2 class="center-text">Application:
-   Final rounding step in standard IPMs</h2>
-           <h5>
-      <!-- <font class="fr"> -->
-    $$$
-      \begin{aligned}
-      \min \; &c^\top x & \max \; & y^\top b \\
-      Ax& =b & \qquad A^\top y + s &= c \\
-      x &\geq 0 & s & \geq 0 \\
-      \end{aligned}
-      $$$
-       </font>
-     </h5>
-     <ul class="lst">
-      <li>
-There exists a partition <font class="fr">$$[n]=B^*\cup N^*$$</font> and optimal <font class="fr">$$(x^*,y^*,s^*)$$</font> such that <font class="fr">$$B^*=\mathrm{supp}(x^*),\, N^*=\mathrm{supp}(s^*)$$</font>.</li>
-<li> Given <font class="fr">$$w=(x,y,s)$$</font> close to the central path with 'small enough'
-<font class="fr">$$\mu=x^\top s/n$$</font>,<br> such that for each <font
-class="fr">$$i\in [n]$$</font>,
-either <font class="fr">$$x_i \geq Ms_i$$</font> or <font class="fr">$$x_i \leq
-s_i/M$$</font> for <font class="fr">$$M$$</font> "very large".
-</li>
-<li>
-Assume we correctly 'guess' the optimal partition <font
-class="fr">$$B^*,N^*$$</font> via
-  <font class="fr">
-    $$$B:=\{i: x_i \gt s_i\},\quad N:=\{i: x_i \leq s_i\}.$$$
-  </font>
-</li>
-<li> We now have <font class="fr">$$x_i \geq M x_j$$</font> and <font
-class="fr">$$M s_i \leq s_j$$</font> for <font class="fr">$$i \in B$$</font> and
-<font class="fr">$$j \in N$$</font>.
-</li>
-</ul>
-</div>
-
-<div id="step-rounding-2" class="step">
-
-  <h2 class="center-text">Application:
-   Final rounding step in standard IPMs</h2>
-           <h5>
-<p>
-We will move to <font class="fr">$$\bar{w}=w+\Delta w :=
-(\bar{x},\bar{s},\bar{y})$$</font> such that <font class="fr">$$\mathrm{supp}(\bar{x})\subseteq
-B$$, $$\mathrm{supp}(\bar{s})\subseteq N$$, $$\bar{x},\bar{s}\ge 0$$.</font> </br>
-If we succeed, <font class="fr">$$\bar{x},\bar{s}$$</font> are optimal since
-<font class="fr">$$\bar{x}^{\top} \bar{s} = 0$$</font>.
-</p>
-
-<p>
-<span>For this purpose, we will compute <font class="fr">$$(\Delta x,\Delta
-s,\Delta y)$$</font> satisfying </span>
-  <font class="fr">$$$A\Delta x=0,\, \Delta x_N=-x_N,\, A^\top \Delta y+\Delta
-s=0, s_B=-s_B,$$$</font>
-together with <font class="fr">$$x+\Delta x\ge0,\, s+\Delta s\ge 0$$</font>. For
-this last inequality, it suffices to achieve
-
-<font class="fr" style="position: relative; left: -40px">
-  $$$\|\Delta x_B\|\leq \min_{i \in B} x_i,\, \|\Delta s_N\|\leq \min_{j \in N} s_j.$$$
-</font>
-</p>
-
-<p>
-<span style="float:left">Natural choices are</span>
-   <font class="fr" style="position: relative; left: -40px">
- $$$\begin{aligned}
-  \Delta x&:=\arg\min\left\{ \|u\| : u_N=-x_N, A u=0\right\}, \\
-  \Delta s&:=\arg\min\left\{\|v\| : v_B=-s_B, A^\top z +v=0\right\}.
-  \end{aligned}
-  $$$
-</font>
-</p>
-
-<p>
-  <span style="float:left"> For the above choice, we have </span>
-<font class="fr" style="position: relative; left: -200px">
-$$$
-\begin{aligned}
-  \|\Delta_B x\| &\le {\textcolor{red}{\bar\chi_A}} \|x_N\| \leq
-\frac{n{\textcolor{red}{\bar\chi_A}}}{M}  \min_{i \in B} x_B,
-\\
-  \|\Delta_N s\| &\le {\textcolor{red}{\bar\chi_A}}\|s_B\| \leq
-\frac{n{\textcolor{red}{\bar\chi_A}}}{M} \min_{j \in N} s_j.
-\end{aligned}
-$$$.
-</font>
-</p>
-</div> -->
-
 
 
 
