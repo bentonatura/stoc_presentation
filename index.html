@@ -146,7 +146,7 @@ hidden; height: 150px; margin: 0px 20px 0px 20px;"/> -->
  <br>
  Weakly polynomial algorithms: Ellipsoid Method and Interior Point Methods run in <font class="fr">$$\mathrm{poly}(n,m,L)$$</font>
  <br>
- <font class="gold"> Strongly polynomial algorithm:</font> Is there an algorithm that runs in <font class="fr">  $$\mathrm{poly}(n,m)$$</font> arithmetic operations? (Smale's 9th squestion) 
+ <font class="gold"> Strongly polynomial algorithm:</font> Is there an algorithm that runs in <font class="fr">  $$\mathrm{poly}(n,m)$$</font> arithmetic operations? (Smale's 9th question) 
  </div>
  <img src="./data/holygrail.png" style="height: 150px;"/>
 
@@ -223,7 +223,8 @@ with $$\|(1,2,x,y)\| \leq M\|(1,2)\|$$.</br>
             Depends only on the subspace $$\ker(A)$$.
           </li>
           <li> $$\bar\chi_A = O(2^{L_A})$$. </li>
-          <li> $$\bar\chi_A$$ polynomially bounded in $$\Delta$$ </li>
+          <li> $$\bar\chi_A \le \sqrt{n}m \Delta$$ for integer matrices $$A$$ : <font
+            class="ref">Tun&ccedil;el '93</font>.  </li>
           <!-- <li>
           Governs the stability of <font class="fr">LLS</font> steps.
           </li> -->
@@ -296,16 +297,17 @@ central path of (LP) mapped to that of (LP') by $$(x(\mu),s(\mu),y(\mu))
       <li>
         Standard interior point methods are <span class="em2">invariant</span> under rescaling.
       </li>
-      <!-- <li> -->
-        <!-- The Vavasis&ndash;Ye (<font class="fr">VY</font>) algorithm is <span class="em2">not scaling
-invariant</span>: </br>
+      <li>
+        The Vavasis&ndash;Ye (<font class="fr">VY</font>) algorithm is <span class="em2">not scaling invariant
+      </li>
+<!-- </span>: </br>
 <font class="fr">LLS</font> steps solve linear system indexed by the current variable ordering </br>
 $$x_{\pi[1]} > \cdots > x_{\pi[n]}$$ and the ratios $$x_{\pi[i]}/x_{\pi[i+1]}$$,
 $$i \in [n-1]$$.
       </li>
       <li>
         <font class="fr"> VY </font> Algorithm uses $$O(n^{3.5} \log\bar\chi_A)$$ LLS steps [VY96].
-      </li> -->
+      </li> --> 
     </ul>
 </div>
 
@@ -592,16 +594,21 @@ to not moving too far away from the path.
 <div id="step-interior-point-method-success" class="step">
   <h2 class="center-text">Recent weakly polynomial IPM successess</h2>
        <font class="fr"> $$$\min c^\top x,\, Ax=b,\, x\ge 0, A \in \mathbb{Q}^{m \times n}$$$</font>
+       <br>
+       <fieldset style="border: 1px black solid; position: relative; top: 14px">
   <ul class="lst">
-    <br>
     <li>Randomized <font class="fr">$$\tilde{O}(\sqrt{m}(\mathrm{nnz}(A) + m^2)L)$$</font> algorithm,  where <font class="fr">$$\mathrm{nnz}$$</font> is the number of non-zeros: <font class="ref">Lee&ndash;Sidford '14-15, '19</font>
     </li>
     <li>Randomized algorithm in 'current' matrix multiplication time <font class="fr">$$\tilde{O}(n^\omega L)$$</font>, <br> $$\omega \approx 2.37$$: <font class="ref">Cohen&ndash;Lee&ndash;Song '18</font>, improving the conditional 'current': <font class="ref"> Jiang, Song, Weinstein, Zhang</font>  </li>
     <li>Deterministic algorithm  with same runtime: <font class="ref">van den Brand '20</font></li>
     <li> Randomized <font class="fr">$$\tilde{O}(\sqrt{m}(md + d^3)$$</font> algorithm, <font class="ref"> van den Brand, Lee, Sidford, Song '20 </font> </li>
   </ul>
+  </fieldset>
   <br>
-  <font class="ref"> D. - N. -V. '20 </font> : Strongly polynomial solvers via blackbox application of weakly polynomial solvers.
+  
+  <fieldset style="border: 1px black solid; position: relative; top: 14px">
+    <font class="ref"> D. - N. -V. '20 </font> : Strongly polynomial solvers via blackbox application of weakly polynomial solvers.
+  </fieldset>
   <!-- <h3> For special problems: </h3>
   <ul>s
     <li><font class="fr">$$\tilde{O}(m^{3/2} \log^2(U/\epsilon))$$</font> algorithm for an additive $$\epsilon$$ approximation for lossy generalized flow problems: <font class="ref">Daitch&ndash;Spielman '08</font></li>
@@ -957,12 +964,12 @@ Our improved analysis is also applicable to the original Vavasis&ndash;Ye algori
 <div id="step-conclusions" class="step" >
   <h2 class="center-text">One more slide - Open questions</h2>
   <ul class="lst">
-   <li style="margin-bottom: 10px; margin-top: 100px"><span class="em2">Practical potential?</span> preprocessing LPs via column rescaling may be a good idea.
+   <!-- <li style="margin-bottom: 10px; margin-top: 100px"><span class="em2">Practical potential?</span> preprocessing LPs via column rescaling may be a good idea. -->
    </li>
-   <li style="margin-bottom: 10px">Improve the running time, both the iteration count and by using faster linear algebra.
+   <li style="margin-bottom: 10px; margin-top: 100px;">Improve the running time, both the iteration count and by using faster linear algebra.
    </li>
-   <li style="margin-bottom: 10px">Understand and further explore the combinatorics of $$\bar\chi_A$$ and $$\kappa_A$$.
-   </li>
+   <!-- <li style="margin-bottom: 10px">Understand and further explore the combinatorics of $$\bar\chi_A$$ and $$\kappa_A$$. -->
+   <!-- </li> -->
    <li style="margin-bottom: 10px">Strongly polynomial LP: need to 'leave' the central path or use path
 induced by different barrier.
    </li>
