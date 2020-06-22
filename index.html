@@ -140,13 +140,13 @@ hidden; height: 150px; margin: 0px 20px 0px 20px;"/> -->
     <img src="./data/lp-pic.png" style="position: relative;" height="200px"/>
   </p>
   <div class="box" style="width: 70%; height: 30%;">
-   LP with <font class="fr"> $$n$$</font> variables, <font class="fr">$$m$$ </font>constraints
+   LP with <font class="fr"> $$n$$</font> variables, <font class="fr">$$m$$ </font>constraints.
 <br>
  <font class="fr">$$L$$</font>: encoding length of the input <font class="fr">$$(A,b,c)$$</font>. 
  <br>
- Weakly polynomial algorithms: Ellipsoid Method and Interior Point Methods run in <font class="fr">$$\mathrm{poly}(n,m,L)$$</font>
+ Weakly polynomial algorithms: Ellipsoid Method and Interior Point Methods run in <font class="fr">$$\mathrm{poly}(n,m,L)$$</font>.
  <br>
- <font class="gold"> Strongly polynomial algorithm:</font> Is there an algorithm that runs in <font class="fr">  $$\mathrm{poly}(n,m)$$</font> arithmetic operations? (Smale's 9th question) 
+ <font class="gold"> Strongly polynomial algorithm:</font> Is there an algorithm that runs in <font class="fr">  $$\mathrm{poly}(n,m)$$</font> arithmetic operations? (Smale's 9th question).
  </div>
  <img src="./data/holygrail.png" style="height: 150px;"/>
 
@@ -179,161 +179,95 @@ LP with <font class="fr"> $$n$$</font> variables, <font class="fr">$$m$$ </font>
        Running time dependent only on constraint matrix $$A$$, <span class="em2"> but not on</span> $$b$$ and $$c$$.
       </p>
 
-      <div class="box" style="width: 50%; height: 65%">
+      <div class="box" style="width: 100%; height: 20%">
 
       <fieldset style="height:100%; border: 1px black solid;">
-          <legend style="border: 1px black solid;margin-left: 1em; padding: 0.2em 0.8em ">General LP</legend>
-          <ul class="lst">
-            <li>
-              <font class="ref">'Combinatorial LPs'</font>
-              <br>
-              If $$A$$ integral and $$|\mathrm{det}(B)| \leq \Delta$$ for all square submatrices of $$A$$, then LP solvable in <font class="fr">$$\mathrm{poly}(m,n,\log(\Delta))$$</font> arithmetic operations: <font class="ref">Tardos '86</font> <br> 
-              <ul class="lst">
-                <li>Note $$\Delta = 1$$ for TU-matrices.</li>
-                <li>If matrix entries bounded in <font class="fr">$$\mathrm{poly}(n)$$</font> then the algorithm is strongly polynomial.</li>
-              </ul> 
-            </li>
-           
-          </ul>
+          <legend style="border: 1px black solid;margin-left: 1em; padding: 0.2em 0.8em "> <font class="ref">'Combinatorial LPs'</font></legend>
+              If $$A$$ integral and $$|\mathrm{det}(B)| \leq \Delta$$ for all square submatrices of $$A$$, then LP solvable in <font class="fr">$$\mathrm{poly}(m,n,\log(\Delta))$$</font> arithmetic operations, <font class="ref">[Tardos '86]</font>. <br> 
           </fieldset>
           </div>
 
-          <div class="box" style="margin-top: 6px; width: 50%; height: 65.5%">
+          <div class="box" style="width: 70%; height: 35%; margin-top: 50px;">
 
-          <fieldset style="height:100%; border: 1px black solid; position: relative; top: -10px">
-            <legend style="border: 1px black solid;margin-left: 1em; padding: 0.2em 0.8em ">Condition number <font class="fr"> $$\bar\chi_A$$</font></legend>
-        <b>Lifting cost definition:</b> $$\bar\chi_A$$ is the
-minimum number $$M \geq 1$$
-such that for all $$I \subseteq [n]$$ and $$x \in \pi_I(\ker(A))$$,
-there exists $$\hat{x} \in \ker(A)$$ satisfying $$\hat{x}_I = x$$ and
-$$\|\hat{x}\| \leq M \|x\|$$. 
+          <fieldset style="height:100%; border: 1px black solid; position: relative; ">
+            <legend style="border: 1px black solid;margin-left: 1em; padding: 0.2em 0.8em "><font class="fr">'Conditioned LPs'</font></legend>
+            <div class="box" style="width: 60%; height: 30%; margin-top">
 
+        'Layered Least Squares' interior-point method with runtime <font class="ref">$$\mathrm{poly}(m,n,\log(\bar \chi_A))$$</font>, where $$\bar\chi_A$$ is a condition number of $$A$$, <br>  <font class="ref">[Vavasis-Ye '96]</font>. 
+             </div> 
+             <div class="box" style="width: 35%; height: 40%; margin-top">
+        <img src="./data/layered_screenshot.png" style="height: 150px; width: 300px"/>
+        </div>
+
+      
 <!-- <b> Example: </b> If $$(2,1,*,*) \in \ker(A)$$, $$\exists (2,1,v_3,v_4) \in \ker(A)$$
 with $$\|(2,1,v_3,v_4)\| \leq M\|(2, 1)\|$$.</br> -->
 
-        <ul class="lst" style="margin-top: 0px;">
+        <!-- <ul class="lst" style="margin-top: 0px;">
         <li>
           Depends only on the subspace $$\ker(A)$$.
         </li>
         <li> $$\bar\chi_A = O(2^{L_A})$$. </li>
         <li> $$\bar\chi_A \le \sqrt{n}m \Delta$$ for integer matrices $$A$$ : <font
-          class="ref">Tun&ccedil;el '93</font>.  </li>
+          class="ref">Tun&ccedil;el '93</font>.  </li> -->
         <!-- <li>
         Governs the stability of <font class="fr">LLS</font> steps.
         </li> -->
-         <li>
+         <!-- <li>
            NP-hard to approximate within a factor <font
 class="fr">$$2^{\mathrm{poly}(n)}$$</font>: <font
 class="ref">Tun&ccedil;el '99</font>.
-              </li>
+              </li> -->
               <!--
               <li>Let $$\barfto\chi_A^* := \inf\{\bar\chi_{AD}: D \text{ diagonal, positive definite}\}$$</li> be the optimal rescaling.
             -->
             </ul>
             </fieldset>
             </div>
+
+            <div class="box" style="width: 30%; height: 35%; padding-top: 50px; ">
+              <fieldset style="height:100%; border: 1px black solid;">
+                <legend style="border: 1px black solid;margin-left: 1em; padding: 0.2em 0.8em "> <font class="ref">Scale invariance</font></legend>
+                   Interior-point-methods are <span class="em2">invariant </span> under column rescalings, but $$\bar\chi_A$$ and the <font class="ref">Vavasis-Ye</font> algorithm are <span class="em2"> not invariant</span>.
+                </fieldset>
+            </div>
 </div>
 
 d
-
-<div id="step-is-there-scale-invariance-1" class="step">
-  <h2 class="center-text">Scale Invariance</h2>
-      <h5>
-     <font class="fr">
-  $$$
-    \begin{aligned}
-    \min \; &c^\top x & \max \; & y^\top b \quad \text{(LP)} \\
-    Ax& =b & \qquad A^\top y + s &= c \\
-    x &\geq 0 & s &\geq 0 \\
-    \end{aligned}
-    $$$
-     </font>
-   </h5>
-  <font class="fr">$$A\in \R^{m\times n}$$.</font> Let <font class="fr">$$\mathbf{D}$$</font> denote the set of $$n\times n$$ positive diagonal matrices.
-  <ul class="lst">
-     <li> <span class="em2">Diagonal rescaling (LP') of (LP):</span>
-Replace $$A'=AD$$, $$c'=Dc$$, $$b'=b$$ for some $$D\in \mathbf{D}$$.
-    </li>
-    <li>
-      <span class="em2">Central path is invariant under rescaling</span>:
-central path of (LP) mapped to that of (LP') by $$(x(\mu),s(\mu),y(\mu))
-\rightarrow (D^{-1}x(\mu), Ds(\mu),y(\mu))$$.
-    <li>
-      Standard interior point methods are <span class="em2">invariant</span> under rescaling.
-    </li>
-   <li>
-      The Vavasis&ndash;Ye (<font class="fr">VY</font>) (96') algorithm solves LP in <font class="fr">$$O(n^{3.5}\log(\bar\chi_A +n))$$</font> linear system solves is <span class="em2">not scaling invariant</span>. 
-      <li>
-        The condition number <font class="fr">$$\bar\chi$$ </font> is not scaling-invariant.
-      </li>
-    </li>
-<!-- </span>: </br>
-<font class="fr">LLS</font> steps solve linear system indexed by the current variable ordering </br>
-$$x_{\pi[1]} > \cdots > x_{\pi[n]}$$ and the ratios $$x_{\pi[i]}/x_{\pi[i+1]}$$,
-$$i \in [n-1]$$.
-    </li>
-    <li>
-      <font class="fr"> VY </font> Algorithm uses $$O(n^{3.5} \log\bar\chi_A)$$ LLS steps [VY96].
-    </li> --> 
-  </ul>
-</div>
-
 <div id="step-our-contributions" class="step">
   <h2 class="center-text"> Our contributions:
 Dadush&ndash;Huiberts&ndash;N.&ndash;V&eacute;gh '20</h2>
 
 <font class="fr">
-  $$$\bar\chi_A^* := \inf\{\bar\chi_{AD}: D\in \mathbf{D}\}.$$$</font>
+  $$$\bar\chi_A^* := \inf\{\bar\chi_{A'}: A' \text{ is column rescaling of } A\}.$$$</font>
 
   <fieldset style="border: 1px black solid">
 
-    <legend style="border: 1px black solid;margin-left: 1em; padding: 0.2em 0.8em"> A scaling invariant algorithm</legend>
+    <legend style="border: 1px black solid;margin-left: 1em; padding: 0.2em 0.8em"> 1) A scaling invariant algorithm</legend>
       We give a scaling invariant LLS interior point method, settling the open question posed by <font class="ref">Monteiro and Tsuchiya in '03</font>.
       </fieldset>
       <fieldset style="border: 1px black solid; position: relative; top: 7px">
-          <legend style="border: 1px black solid;margin-left: 1em; padding: 0.2em 0.8em ">Improved Runtime</legend>
+          <legend style="border: 1px black solid;margin-left: 1em; padding: 0.2em 0.8em ">2) Improved Runtime</legend>
          We show a running time bound of <font class="fr">$$O(n^{2.5}\log(\bar\chi_A^\ast +n)\log n)$$</font> linear system solves. This is achieved via an improved analysis that also applies to the original <font class="ref">Vavasis-Ye</font> algorithm that requires <font class="fr">$$O(n^{3.5}\log(\bar\chi_A +n))$$</font> linear system solves.
         </fieldset>
-      <fieldset style="border: 1px black solid; position: relative; top: 14px">
-      <legend style="border: 1px black solid;margin-left: 1em; padding: 0.2em 0.8em ">Finding a nearly-optimal rescaling of $$A$$</legend>
-Given <font class="fr">$$A \in \R^{m \times n}$$</font>, in <font
-class="fr">$$O(n^2m^2 + n^3)$$</font> time, we can compute: <br>
-      <!-- <ol class="lst" style="position:relative; top:-20px; margin-bottom: -20px;"> -->
-   <!--        <li>
- <font class="ref">Tun&ccedil;el '99</font>: There exists no
-$$2^{\mathrm{poly}(\mathrm{rank}(A))}$$-approximation of <font class="ref">$$\bar\chi_A$$</font>.
-      </li> -->
-      (i) rescaling <font class="fr">$$D \in \mathbf{D}$$</font> satisfying
-       <font class="fr">
-$$ \bar\chi_A^*\le \bar\chi_{AD}\le n (\bar\chi_A^*)^3$$</font>, (ii) <font class="fr">$$t \geq 1$$</font> satisfying
-<font class="fr">$$t \leq \bar \chi_A \leq n(\bar{\chi}_A^*)^2t$$</font>.
-        <!-- </li> -->
-     <!-- </ol> -->
+      <fieldset style="border: 1px black solid; position: relative; top: 14px; height:21%">
+      <legend style="border: 1px black solid;margin-left: 1em; padding: 0.2em 0.8em ">An important tool - Circuit imbalance</legend>
+      <div class="box" style="width: 45%; height: 100%; margin-top: 0px;font-size: 18px;">
+        $$$\kappa := \max\left\{\left|\frac{x_j}{x_i} \right|: \{i,j\} \subset \mathrm{supp}(x),\, Ax=0,\, \mathrm{supp}(g) \text{ minimal } \right\}$$$
+      </font>
+      </div>
+      <div class="box" style="width: 43%; float: right; height: 100%; margin-top: 0px; font-size: 20px;">
+        <li>
+          Combinatorial measure 
+        </li>
+        <li>
+          $$\kappa \approx \bar\chi$$
+        </li>
+        <li>
+          min-max characterisation of optimal rescaling $$\kappa^*$$.
+        </li>
+      </div>
       </fieldset>
-</div>
-
-
-<div id="step-our-techniques" class="step">
-  <h2 class="center-text"> Techniques</h2>
-  <div style="width: 0%; margin: auto"></div>
-  
-  <div class="box" style="width: 50%; height: 45%">
-      <fieldset style="border: 1px black solid; position: relative; top: 7px; width: 70%">
-          <legend style="border: 1px black solid;margin-left: 1em; padding: 0.2em 0.8em ">Layered Least Squares - Interior Point Method</legend>
-        Path-following with alternating Predictor and Corrector steps. Partition the variables into <span class="em2">scaling-invariant</span> layers. Find Newton update layer by layer.
-        </fieldset>
-   </div>
-   <div class="box" style="width: 45%; height: 30%">
-    <canvas id="chart_canvas3"></canvas>
-          </div>
-      <div class="box" style="width: 100%">
-  <fieldset style="border: 1px black solid; width: 90%">
-    <legend style="border: 1px black solid;margin-left: 1em; padding: 0.2em 0.8em">Progress Measure - Circuit imbalance</legend>
-    A <span class="em2">circuit</span> of $$A$$ is a minimal linearly dependent subset of columns $$C \subseteq [n]$$. <br>
-    Imbalance measure <font class="fr"> $$\kappa_{ij} := \max\left\{\left|\frac{g_j}{g_i} \right|: \{i,j\} \subset \mathrm{supp}(g),\, Ag=0,\, \mathrm{supp}(g) \in \mathcal{C}\right\}$$</font> with optimal rescaling <font class="fr">$$\kappa_{ij}^*$$</font>.
-    For some variables <font class="fr"> $$i, j$$</font> initially <font class="fr">$$x_j \gg \kappa_{ij}^*x_i$$</font> and after  <font class="fr"> $$O(n\log \bar\chi^*)$$ </font> iterations <font class="fr">$$x_j \ll \kappa_{ij}^*x_i$$</font> <span class="em2">forever thereafter</span>. $$\rightsquigarrow$$ can only happen $$n^2$$ times.
-      </fieldset>
-     </div>
 </div>
 
 
